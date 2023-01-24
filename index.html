@@ -1,837 +1,837 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
 
-		<title>reveal.js</title>
+    <title>reveal.js</title>
 
-		<link rel="stylesheet" href="dist/reset.css">
-		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/beige.css">
+    <link rel="stylesheet" href="dist/reset.css" />
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/beige.css" />
 
-		<!-- Theme used for syntax highlighted code -->
-		<link rel="stylesheet" href="plugin/highlight/monokai.css">
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-			  <section>
-				<h1>OWASP Top-10</h1>
-			  </section>
-			  <section data-auto-animate>
-				<h4>What is OWASP?</h4>
-			  </section>
-			  <section data-auto-animate>
-				<h4>What is OWASP?</h4>
-				<h4>Open Web Application Security Project</h4>
-				<img data-src="./assets/logo.png" alt="" />
-			  </section>
-			  <section>
-				<section>
-				  <h4>What about OWASP top ten?</h4>
-				</section>
-				<section>
-				  <h4>
-					Represents a broad consensus about the most critical security
-					risks to web applications.
-				  </h4>
-				</section>
-				<section>
-				  <h4>List is updated every 3-4 years</h4>
-				</section>
-			  </section>
-			  <section data-auto-animate>
-				<p>OWASP Top 10 - 2017</p>
-				<ol>
-				  <li data-id="3">A01:2017-Injection</li>
-				  <li data-id="7">A02:2017-Broken Authentication</li>
-				  <li data-id="2">A03:2017-Sensitive Data Exposure</li>
-				  <li>A04:2017-XML External Entities (XEE)</li>
-				  <li data-id="1">A05:2017-Broken Access Control</li>
-				  <li data-id="5">A06:2017-Security Misconfiguration</li>
-				  <li>A07:2017-Cross-site Scripting (XSS)</li>
-				  <li>A08:2017-Insecure Deserialization</li>
-				  <li data-id="6">
-					A09:2017-Using Components with Known Vulnerabilities
-				  </li>
-				  <li data-id="9">A10:2017-Insufficient Logging & Monitoring</li>
-				</ol>
-				<aside class="notes">
-				  Last top ten of 2017, top ten changes every 3-4 years
-				</aside>
-			  </section>
-			  <section data-auto-animate>
-				<p>OWASP Top 10 - 2021</p>
-				<ol>
-				  <li data-id="1">A01:2021-Broken Access Control</li>
-				  <li data-id="2">A02:2021-Cryptographic Failures</li>
-				  <li data-id="3">A03:2021-Injection</li>
-				  <li>A04:2021-Insecure Design</li>
-				  <li data-id="5">A05:2021-Security Misconfiguration</li>
-				  <li data-id="6">A06:2021-Vulnerable and Outdated Components</li>
-				  <li data-id="7">
-					A07:2021-Identification and Authentication Failures
-				  </li>
-				  <li>A08:2021-Software and Data Integrity Failures</li>
-				  <li data-id="9">
-					A09:2021-Security Logging and Monitoring Failures
-				  </li>
-				  <li>A10:2021-Server-Side Request Forgery</li>
-				</ol>
-				<aside class="notes">Last and current versions of OWASP Top 10</aside>
-			  </section>
-			  <!-- broken -access -->
-			  <section>
-				<section>
-				  A01:2021 – Broken Access Control
-				  <aside class="notes">First threat - no access risks</aside>
-				</section>
-				<section>
-				  <table style="font-size: 20px" class="broken-access">
-					<thead>
-					  <tr>
-						<th align="center">CWEs Mapped</th>
-						<th align="center">Max Incidence Rate</th>
-						<th align="center">Avg Incidence Rate</th>
-						<th align="center">Avg Weighted Exploit</th>
-						<th align="center">Avg Weighted Impact</th>
-						<th align="center">Max Coverage</th>
-						<th align="center">Avg Coverage</th>
-						<th align="center">Total Occurrences</th>
-						<th align="center">Total CVEs</th>
-					  </tr>
-					</thead>
-					<tbody>
-					  <tr>
-						<td align="center">34</td>
-						<td align="center">55.97%</td>
-						<td align="center">3.81%</td>
-						<td align="center">6.92</td>
-						<td align="center">5.93</td>
-						<td align="center">94.55%</td>
-						<td align="center">47.72%</td>
-						<td align="center">318,487</td>
-						<td align="center">19,013</td>
-					  </tr>
-					</tbody>
-				  </table>
-				</section>
-				<section>
-				  <h2>Description</h2>
-				  <p>
-					Access control applies the policy in such a way that users cannot
-					act outside of their intended permissions.
-				  </p>
-				  <p>Common access control vulnerabilities include:</p>
-				  <ul>
-					<li>
-					  Violation of the principle of least privilege or deny by
-					  default,
-					</li>
-					<li>
-					  Permitting viewing or editing someone else's account, by
-					  providing its unique identifier
-					</li>
-					<li>
-					  Accessing API with missing access controls for POST, PUT and
-					  DELETE.
-					</li>
-				  </ul>
-				</section>
-				<section>
-				  <h2>How to prevent?</h2>
-				  <p>
-					Access control is only effective in trusted server-side code or
-					server-less API
-				  </p>
-				  <a
-					href="https://owasp.org/Top10/A01_2021-Broken_Access_Control/#how-to-prevent"
-					>Ways to prevent</a
-				  >
-				  <p>
-					Developers should include functional access control unit and
-					integration tests.
-				  </p>
-				</section>
-				<section>
-				  <h2>Example Attack Scenarios</h2>
-				  <p>Scenario #1:</p>
-				  <pre
-					class="fragment fade-in"
-				  ><code data-trim data-noescape>pstmt.setString(1, request.getParameter("account"));
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="plugin/highlight/monokai.css" />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h1>OWASP Top-10</h1>
+        </section>
+        <section data-auto-animate>
+          <h4>What is OWASP?</h4>
+        </section>
+        <section data-auto-animate>
+          <h4>What is OWASP?</h4>
+          <h4>Open Web Application Security Project</h4>
+          <img data-src="./assets/logo.png" alt="" />
+        </section>
+        <section>
+          <section>
+            <h4>What about OWASP top ten?</h4>
+          </section>
+          <section>
+            <h4>
+              Represents a broad consensus about the most critical security
+              risks to web applications.
+            </h4>
+          </section>
+          <section>
+            <h4>List is updated every 3-4 years</h4>
+          </section>
+        </section>
+        <section data-auto-animate>
+          <p>OWASP Top 10 - 2017</p>
+          <ol>
+            <li data-id="3">A01:2017-Injection</li>
+            <li data-id="7">A02:2017-Broken Authentication</li>
+            <li data-id="2">A03:2017-Sensitive Data Exposure</li>
+            <li>A04:2017-XML External Entities (XEE)</li>
+            <li data-id="1">A05:2017-Broken Access Control</li>
+            <li data-id="5">A06:2017-Security Misconfiguration</li>
+            <li>A07:2017-Cross-site Scripting (XSS)</li>
+            <li>A08:2017-Insecure Deserialization</li>
+            <li data-id="6">
+              A09:2017-Using Components with Known Vulnerabilities
+            </li>
+            <li data-id="9">A10:2017-Insufficient Logging & Monitoring</li>
+          </ol>
+          <aside class="notes">
+            Last top ten of 2017, top ten changes every 3-4 years
+          </aside>
+        </section>
+        <section data-auto-animate>
+          <p>OWASP Top 10 - 2021</p>
+          <ol>
+            <li data-id="1">A01:2021-Broken Access Control</li>
+            <li data-id="2">A02:2021-Cryptographic Failures</li>
+            <li data-id="3">A03:2021-Injection</li>
+            <li>A04:2021-Insecure Design</li>
+            <li data-id="5">A05:2021-Security Misconfiguration</li>
+            <li data-id="6">A06:2021-Vulnerable and Outdated Components</li>
+            <li data-id="7">
+              A07:2021-Identification and Authentication Failures
+            </li>
+            <li>A08:2021-Software and Data Integrity Failures</li>
+            <li data-id="9">
+              A09:2021-Security Logging and Monitoring Failures
+            </li>
+            <li>A10:2021-Server-Side Request Forgery</li>
+          </ol>
+          <aside class="notes">Last and current versions of OWASP Top 10</aside>
+        </section>
+        <!-- broken -access -->
+        <section>
+          <section>
+            A01:2021 – Broken Access Control
+            <aside class="notes">First threat - no access risks</aside>
+          </section>
+          <section>
+            <table style="font-size: 20px" class="broken-access">
+              <thead>
+                <tr>
+                  <th align="center">CWEs Mapped</th>
+                  <th align="center">Max Incidence Rate</th>
+                  <th align="center">Avg Incidence Rate</th>
+                  <th align="center">Avg Weighted Exploit</th>
+                  <th align="center">Avg Weighted Impact</th>
+                  <th align="center">Max Coverage</th>
+                  <th align="center">Avg Coverage</th>
+                  <th align="center">Total Occurrences</th>
+                  <th align="center">Total CVEs</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td align="center">34</td>
+                  <td align="center">55.97%</td>
+                  <td align="center">3.81%</td>
+                  <td align="center">6.92</td>
+                  <td align="center">5.93</td>
+                  <td align="center">94.55%</td>
+                  <td align="center">47.72%</td>
+                  <td align="center">318,487</td>
+                  <td align="center">19,013</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+          <section>
+            <h2>Description</h2>
+            <p>
+              Access control applies the policy in such a way that users cannot
+              act outside of their intended permissions.
+            </p>
+            <p>Common access control vulnerabilities include:</p>
+            <ul>
+              <li>
+                Violation of the principle of least privilege or deny by
+                default,
+              </li>
+              <li>
+                Permitting viewing or editing someone else's account, by
+                providing its unique identifier
+              </li>
+              <li>
+                Accessing API with missing access controls for POST, PUT and
+                DELETE.
+              </li>
+            </ul>
+          </section>
+          <section>
+            <h2>How to prevent?</h2>
+            <p>
+              Access control is only effective in trusted server-side code or
+              server-less API
+            </p>
+            <a
+              href="https://owasp.org/Top10/A01_2021-Broken_Access_Control/#how-to-prevent"
+              >Ways to prevent</a
+            >
+            <p>
+              Developers should include functional access control unit and
+              integration tests.
+            </p>
+          </section>
+          <section>
+            <h2>Example Attack Scenarios</h2>
+            <p>Scenario #1:</p>
+            <pre
+              class="fragment fade-in"
+            ><code data-trim data-noescape>pstmt.setString(1, request.getParameter("account"));
 					ResultSet results = pstmt.executeQuery( );</code></pre>
-				  <pre
-					class="fragment fade-in"
-				  ><code data-trim data-noescape>https://example.com/accountInfo?account=notmyaccount</code></pre>
-				  <p class="fragment fade-in">Scenario #2:</p>
-				  <pre class="fragment fade-in"><code data-trim data-noescape>
+            <pre
+              class="fragment fade-in"
+            ><code data-trim data-noescape>https://example.com/accountInfo?account=notmyaccount</code></pre>
+            <p class="fragment fade-in">Scenario #2:</p>
+            <pre class="fragment fade-in"><code data-trim data-noescape>
 					https://example.com/getappInfo
 					https://example.com/admin_getappInfo</code></pre>
-				</section>
-			  </section>
-			  <!-- crypto failures -->
-			  <section>
-				<section>
-				  A02:2021 – Cryptographic Failures
-				  <aside class="notes">Second threat</aside>
-				</section>
-				<section>
-				  <table style="font-size: 20px" class="crypto_failures">
-					<thead>
-					  <tr>
-						<th align="center">CWEs Mapped</th>
-						<th align="center">Max Incidence Rate</th>
-						<th align="center">Avg Incidence Rate</th>
-						<th align="center">Avg Weighted Exploit</th>
-						<th align="center">Avg Weighted Impact</th>
-						<th align="center">Max Coverage</th>
-						<th align="center">Avg Coverage</th>
-						<th align="center">Total Occurrences</th>
-						<th align="center">Total CVEs</th>
-					  </tr>
-					</thead>
-					<tbody>
-					  <tr>
-						<td align="center">29</td>
-						<td align="center">46.44%</td>
-						<td align="center">4.49%</td>
-						<td align="center">7.29</td>
-						<td align="center">6.81</td>
-						<td align="center">79.33%</td>
-						<td align="center">34.85%</td>
-						<td align="center">233,788</td>
-						<td align="center">3,075</td>
-					  </tr>
-					</tbody>
-				  </table>
-				</section>
-				<section>
-				  <h2>Description</h2>
-				  <p>
-					The first thing is to protect personal information of users.
-					Passwords, credit card numbers, health records and business
-					secrets require extra protection.
-				  </p>
-				  <p>For all such data you should check:</p>
-				  <ul>
-					<li>
-					  Is the received server certificate and the trust chain properly
-					  validated?
-					</li>
-					<li>Are passwords being used as cryptographic keys?</li>
-					<li>Are deprecated hash functions such as MD5 or SHA1 in use?</li>
-				  </ul>
-				</section>
-				<section>
-				  <h2>How to prevent?</h2>
-				  <a
-					href="https://owasp.org/Top10/A02_2021-Cryptographic_Failures/#how-to-prevent"
-					>Ways to prevent</a
-				  >
-				  <p>
-					Encrypt all data in transit with secure protocols such as TLS with
-					forward secrecy ciphers and secure parameters.
-				  </p>
-				</section>
-				<section>
-				  <h2>Example Attack Scenarios</h2>
-				  <p>Scenario:</p>
-				  <p class="fragment fade-in">
-					The password database uses unsalted and simple hashes to store
-					everyone's passwords. A file upload flaw allows an attacker to
-					retrieve the password database. Hashes generated by simple or fast
-					hash functions may be cracked by GPUs, even if they were salted.
-				  </p>
-				</section>
-			  </section>
-			  <!-- injections -->
-			  <section>
-				<section>
-				  A03:2021 – Injection
-				  <aside class="notes">Third threat - threat in forms</aside>
-				</section>
-				<section>
-				  <table style="font-size: 20px" class="injections">
-					<thead>
-					  <tr>
-						<th align="center">CWEs Mapped</th>
-						<th align="center">Max Incidence Rate</th>
-						<th align="center">Avg Incidence Rate</th>
-						<th align="center">Avg Weighted Exploit</th>
-						<th align="center">Avg Weighted Impact</th>
-						<th align="center">Max Coverage</th>
-						<th align="center">Avg Coverage</th>
-						<th align="center">Total Occurrences</th>
-						<th align="center">Total CVEs</th>
-					  </tr>
-					</thead>
-					<tbody>
-					  <tr>
-						<td align="center">33</td>
-						<td align="center">19.09%</td>
-						<td align="center">3.37%</td>
-						<td align="center">7.25</td>
-						<td align="center">7.15</td>
-						<td align="center">94.04%</td>
-						<td align="center">47.90%</td>
-						<td align="center">274,228</td>
-						<td align="center">32,078</td>
-					  </tr>
-					</tbody>
-				  </table>
-				</section>
-				<section>
-				  <h2>Description</h2>
-				  <p>An application is open to attack when:</p>
-				  <ul>
-					<li>
-					  User-supplied data is not validated, filtered, or sanitized by
-					  the application.
-					</li>
-					<li>
-					  Dangerous data is directly used. The SQL contains the structure
-					  and malicious data in dynamic queries, commands, or stored
-					  procedures.
-					</li>
-				  </ul>
-				</section>
-				<section>
-				  <h2>How to prevent?</h2>
-				  <a href="https://owasp.org/Top10/A03_2021-Injection/#how-to-prevent"
-					>Ways to prevent</a
-				  >
-				  <p>The preferred option is to use a safe API</p>
-				</section>
-				<section>
-				  <h4>Example Attack Scenarios</h4>
-				  <p>Scenario:</p>
-				  <p class="fragment fade-in">
-					An application uses untrusted data in the construction of the
-					following vulnerable SQL call:
-				  </p>
-				  <pre
-					class="fragment fade-in"
-				  ><code data-trim data-noescape>String query = "SELECT \* FROM accounts WHERE custID='" + request.getParameter("id") + "'";</code></pre>
-				  <p class="fragment fade-in">
-					the attacker modifies the ‘id’ parameter value in their browser to
-					send: ‘ or ‘1’=’1.
-				  </p>
-				  <pre
-					class="fragment fade-in"
-				  ><code data-trim data-noescape>http://example.com/app/accountView?id=' or '1'='1</code></pre>
-				</section>
-			  </section>
-			  <!-- insecure design -->
-			  <section>
-				<section>
-				  A04:2021 – Insecure Design
-				  <aside class="notes">
-					Fourth threat - threat in design and architecture
-				  </aside>
-				</section>
-				<section>
-				  <table style="font-size: 20px" class="insecure_design">
-					<thead>
-					  <tr>
-						<th align="center">CWEs Mapped</th>
-						<th align="center">Max Incidence Rate</th>
-						<th align="center">Avg Incidence Rate</th>
-						<th align="center">Avg Weighted Exploit</th>
-						<th align="center">Avg Weighted Impact</th>
-						<th align="center">Max Coverage</th>
-						<th align="center">Avg Coverage</th>
-						<th align="center">Total Occurrences</th>
-						<th align="center">Total CVEs</th>
-					  </tr>
-					</thead>
-					<tbody>
-					  <tr>
-						<td align="center">40</td>
-						<td align="center">24.19%</td>
-						<td align="center">3.00%</td>
-						<td align="center">6.46</td>
-						<td align="center">6.78</td>
-						<td align="center">77.25%</td>
-						<td align="center">42.51%</td>
-						<td align="center">262,407</td>
-						<td align="center">2,691</td>
-					  </tr>
-					</tbody>
-				  </table>
-				</section>
-				<section>
-				  <h2>Description</h2>
-				  <p>
-					Secure design is a culture and methodology that constantly assess
-					threats and ensure that code is reliably designed and tested to
-					prevent known attack methods.
-				  </p>
-				</section>
-				<section>
-				  <h2>How to prevent?</h2>
-				  <a
-					href="https://owasp.org/Top10/A04_2021-Insecure_Design/#how-to-prevent"
-					>Ways to prevent</a
-				  >
-				  <p>
-					Write unit and integration tests to validate that all critical
-					flows are resistant to the threat model.
-				  </p>
-				</section>
-				<section>
-				  <h4>Example Attack Scenarios</h4>
-				  <p>Scenario:</p>
-				  <p class="fragment fade-in">
-					A cinema chain allows group booking discounts and has a maximum of
-					fifteen attendees before requiring a deposit. Attackers could
-					threat model this flow and test if they could book six hundred
-					seats and all cinemas at once in a few requests, causing a massive
-					loss of income.
-				  </p>
-				</section>
-			  </section>
-			  <!-- Security Misconfiguration -->
-			  <section>
-				<section>
-				  A05:2021 – Security Misconfiguration
-				  <aside class="notes">Fifth threat - threat in security</aside>
-				</section>
-				<section>
-				  <table style="font-size: 20px" class="security">
-					<thead>
-					  <tr>
-						<th align="center">CWEs Mapped</th>
-						<th align="center">Max Incidence Rate</th>
-						<th align="center">Avg Incidence Rate</th>
-						<th align="center">Avg Weighted Exploit</th>
-						<th align="center">Avg Weighted Impact</th>
-						<th align="center">Max Coverage</th>
-						<th align="center">Avg Coverage</th>
-						<th align="center">Total Occurrences</th>
-						<th align="center">Total CVEs</th>
-					  </tr>
-					</thead>
-					<tbody>
-					  <tr>
-						<td align="center">20</td>
-						<td align="center">19.84%</td>
-						<td align="center">4.51%</td>
-						<td align="center">8.12</td>
-						<td align="center">6.56</td>
-						<td align="center">89.58%</td>
-						<td align="center">44.84%</td>
-						<td align="center">208,387</td>
-						<td align="center">789</td>
-					  </tr>
-					</tbody>
-				  </table>
-				</section>
-				<section>
-				  <h2>Description</h2>
-				  <p>The application might be vulnerable if the application is:</p>
-				  <ul>
-					<li>Improperly configured permissions on cloud services.</li>
-					<li>
-					  Unnecessary features are enabled or installed (e.g., unnecessary
-					  ports, services, pages, accounts).
-					</li>
-					<li>
-					  Default accounts and their passwords are still enabled and
-					  unchanged.
-					</li>
-				  </ul>
-				</section>
-				<section>
-				  <h2>How to prevent?</h2>
-				  <a
-					href="https://owasp.org/Top10/A05_2021-Security_Misconfiguration/#how-to-prevent"
-					>Ways to prevent</a
-				  >
-				  <p>
-					Sending security directives to clients, e.g., Security Headers.
-				  </p>
-				</section>
-				<section>
-				  <h4>Example Attack Scenarios</h4>
-				  <p>Scenario:</p>
-				  <p class="fragment fade-in">
-					The application server comes with sample applications not removed
-					from the production server. These sample applications have known
-					security flaws attackers use to compromise the server. Suppose one
-					of these applications is the admin console, and default accounts
-					weren't changed. In that case, the attacker logs in with default
-					passwords and takes over.
-				  </p>
-				</section>
-			  </section>
-			  <!-- Vulnerable and Outdated Components -->
-			  <section>
-				<section>
-				  A06:2021 – Vulnerable and Outdated Components
-				  <aside class="notes">Six threat - threat in outdated</aside>
-				</section>
-				<section>
-				  <table style="font-size: 20px" class="outdated">
-					<thead>
-					  <tr>
-						<th align="center">CWEs Mapped</th>
-						<th align="center">Max Incidence Rate</th>
-						<th align="center">Avg Incidence Rate</th>
-						<th align="center">Max Coverage</th>
-						<th align="center">Avg Coverage</th>
-						<th align="center">Avg Weighted Exploit</th>
-						<th align="center">Avg Weighted Impact</th>
-						<th align="center">Total Occurrences</th>
-						<th align="center">Total CVEs</th>
-					  </tr>
-					</thead>
-					<tbody>
-					  <tr>
-						<td align="center">3</td>
-						<td align="center">27.96%</td>
-						<td align="center">8.77%</td>
-						<td align="center">51.78%</td>
-						<td align="center">22.47%</td>
-						<td align="center">5.00</td>
-						<td align="center">5.00</td>
-						<td align="center">30,457</td>
-						<td align="center">0</td>
-					  </tr>
-					</tbody>
-				  </table>
-				</section>
-				<section>
-				  <h2>Description</h2>
-				  <p>You are likely vulnerable:</p>
-				  <ul>
-					<li>
-					  If you do not know the versions of all components you use (both
-					  client-side and server-side).
-					</li>
-					<li>If the software is unsupported or out of date.</li>
-					<li>
-					  If software developers do not test the compatibility of updated,
-					  upgraded, or patched libraries.
-					</li>
-				  </ul>
-				</section>
-				<section>
-				  <h2>How to prevent?</h2>
-				  <a
-					href="https://owasp.org/Top10/A06_2021-Vulnerable_and_Outdated_Components/#how-to-prevent"
-					>Ways to prevent</a
-				  >
-				  <p>
-					Remove unused dependencies, unnecessary features, components,
-					files, and documentation.
-				  </p>
-				</section>
-				<section>
-				  <h4>Example Attack Scenarios</h4>
-				  <p>Scenario:</p>
-				  <p class="fragment fade-in">
-					Components typically run with the same privileges as the
-					application itself, so flaws in any component can result in
-					serious impact. Such flaws can be accidental (e.g., coding error)
-					or intentional (e.g., a backdoor in a component).
-				  </p>
-				  <p class="fragment fade-in">
-					There are automated tools to help attackers find unpatched or
-					misconfigured systems.
-				  </p>
-				</section>
-			  </section>
-			  <!-- Authentication -->
-			  <section>
-				<section>
-				  A07:2021 – Identification and Authentication Failures
-				  <aside class="notes">seventh threat - threat in outdated</aside>
-				</section>
-				<section>
-				  <table style="font-size: 20px" class="authentication">
-					<thead>
-					  <tr>
-						<th align="center">CWEs Mapped</th>
-						<th align="center">Max Incidence Rate</th>
-						<th align="center">Avg Incidence Rate</th>
-						<th align="center">Avg Weighted Exploit</th>
-						<th align="center">Avg Weighted Impact</th>
-						<th align="center">Max Coverage</th>
-						<th align="center">Avg Coverage</th>
-						<th align="center">Total Occurrences</th>
-						<th align="center">Total CVEs</th>
-					  </tr>
-					</thead>
-					<tbody>
-					  <tr>
-						<td align="center">22</td>
-						<td align="center">14.84%</td>
-						<td align="center">2.55%</td>
-						<td align="center">7.40</td>
-						<td align="center">6.50</td>
-						<td align="center">79.51%</td>
-						<td align="center">45.72%</td>
-						<td align="center">132,195</td>
-						<td align="center">3,897</td>
-					  </tr>
-					</tbody>
-				  </table>
-				</section>
-				<section>
-				  <h2>Description</h2>
-				  <p>
-					Confirmation of the user's identity, authentication, and session
-					management is critical to protect against authentication-related
-					attacks. There may be authentication weaknesses if the
-					application:
-				  </p>
-				  <ul>
-					<li>Permits brute force or other automated attacks.</li>
-					<li>Exposes session identifier in the URL.</li>
-				  </ul>
-				</section>
-				<section>
-				  <h2>How to prevent?</h2>
-				  <a
-					href="https://owasp.org/Top10/A07_2021-Identification_and_Authentication_Failures/#how-to-prevent"
-					>Ways to prevent</a
-				  >
-				  <p>
-					Where possible, implement multi-factor authentication to prevent
-					automated credential stuffing, brute force, and stolen credential
-					reuse attacks.
-				  </p>
-				</section>
-				<section>
-				  <h4>Example Attack Scenarios</h4>
-				  <p>Scenario:</p>
-				  <p class="fragment fade-in">
-					Application session timeouts aren't set correctly. A user uses a
-					public computer to access an application. Instead of selecting
-					"logout," the user simply closes the browser tab and walks away.
-					An attacker uses the same browser an hour later, and the user is
-					still authenticated.
-				  </p>
-				</section>
-			  </section>
-			  <!-- Data Integrity -->
-			  <section>
-				<section>
-				  A08:2021 – Software and Data Integrity Failures
-				  <aside class="notes">eight threat - threat in outdated</aside>
-				</section>
-				<section>
-				  <table style="font-size: 20px" class="data_integrity">
-					<thead>
-					  <tr>
-						<th align="center">CWEs Mapped</th>
-						<th align="center">Max Incidence Rate</th>
-						<th align="center">Avg Incidence Rate</th>
-						<th align="center">Avg Weighted Exploit</th>
-						<th align="center">Avg Weighted Impact</th>
-						<th align="center">Max Coverage</th>
-						<th align="center">Avg Coverage</th>
-						<th align="center">Total Occurrences</th>
-						<th align="center">Total CVEs</th>
-					  </tr>
-					</thead>
-					<tbody>
-					  <tr>
-						<td align="center">10</td>
-						<td align="center">16.67%</td>
-						<td align="center">2.05%</td>
-						<td align="center">6.94</td>
-						<td align="center">7.94</td>
-						<td align="center">75.04%</td>
-						<td align="center">45.35%</td>
-						<td align="center">47,972</td>
-						<td align="center">1,152</td>
-					  </tr>
-					</tbody>
-				  </table>
-				</section>
-				<section>
-				  <h2>Description</h2>
-				  <p>
-					Software and data integrity failures relate to code and
-					infrastructure that does not protect against integrity violations.
-					An example of this is where an application relies upon plugins,
-					libraries, or modules from untrusted sources, repositories, and
-					content delivery networks
-				  </p>
-				</section>
-				<section>
-				  <h2>How to prevent?</h2>
-				  <a
-					href="https://owasp.org/Top10/A08_2021-Software_and_Data_Integrity_Failures/#how-to-prevent"
-					>Ways to prevent</a
-				  >
-				  <p>
-					Ensure libraries and dependencies, such as npm, are consuming
-					trusted repositories.
-				  </p>
-				</section>
-			  </section>
-			  <!-- Security Logging -->
-			  <section>
-				<section>
-				  A09:2021 – Security Logging and Monitoring Failures
-				  <aside class="notes">
-					nineth threat - threat in Logging and Monitoring
-				  </aside>
-				</section>
-				<section>
-				  <table style="font-size: 20px" class="security_logging">
-					<thead>
-					  <tr>
-						<th align="center">CWEs Mapped</th>
-						<th align="center">Max Incidence Rate</th>
-						<th align="center">Avg Incidence Rate</th>
-						<th align="center">Avg Weighted Exploit</th>
-						<th align="center">Avg Weighted Impact</th>
-						<th align="center">Max Coverage</th>
-						<th align="center">Avg Coverage</th>
-						<th align="center">Total Occurrences</th>
-						<th align="center">Total CVEs</th>
-					  </tr>
-					</thead>
-					<tbody>
-					  <tr>
-						<td align="center">4</td>
-						<td align="center">19.23%</td>
-						<td align="center">6.51%</td>
-						<td align="center">6.87</td>
-						<td align="center">4.99</td>
-						<td align="center">53.67%</td>
-						<td align="center">39.97%</td>
-						<td align="center">53,615</td>
-						<td align="center">242</td>
-					  </tr>
-					</tbody>
-				  </table>
-				</section>
-				<section>
-				  <h2>Description</h2>
-				  <p>
-					This category is to help detect, escalate, and respond to active
-					breaches. Without logging and monitoring, breaches cannot be
-					detected. Insufficient logging, detection, monitoring, and active
-					response occurs any time:
-				  </p>
-				  <ul>
-					<li>
-					  The application cannot detect, escalate, or alert for active
-					  attacks in real-time or near real-time.
-					</li>
-				  </ul>
-				</section>
-				<section>
-				  <h2>How to prevent?</h2>
-				  <a
-					href="https://owasp.org/Top10/A09_2021-Security_Logging_and_Monitoring_Failures/#how-to-prevent"
-					>Ways to prevent</a
-				  >
-				  <p>
-					Ensure all login, access control, and server-side input validation
-					failures can be logged with sufficient user context to identify
-					suspicious or malicious accounts and held for enough time to allow
-					delayed forensic analysis.
-				  </p>
-				</section>
-				<section>
-				  <h4>Example Attack Scenarios</h4>
-				  <p>Scenario:</p>
-				  <p class="fragment fade-in">
-					A children's health plan provider's website operator couldn't
-					detect a breach due to a lack of monitoring and logging. An
-					external party informed the health plan provider that an attacker
-					had accessed and modified thousands of sensitive health records of
-					more than 3.5 million children.
-				  </p>
-				</section>
-			  </section>
-			  <!-- Server-Side -->
-			  <section>
-				<section>
-				  A10:2021 – Server-Side Request Forgery (SSRF)
-				  <aside class="notes">last threat - threat in Server-Side</aside>
-				</section>
-				<section>
-				  <table style="font-size: 20px" class="server_side">
-					<thead>
-					  <tr>
-						<th align="center">CWEs Mapped</th>
-						<th align="center">Max Incidence Rate</th>
-						<th align="center">Avg Incidence Rate</th>
-						<th align="center">Avg Weighted Exploit</th>
-						<th align="center">Avg Weighted Impact</th>
-						<th align="center">Max Coverage</th>
-						<th align="center">Avg Coverage</th>
-						<th align="center">Total Occurrences</th>
-						<th align="center">Total CVEs</th>
-					  </tr>
-					</thead>
-					<tbody>
-					  <tr>
-						<td align="center">1</td>
-						<td align="center">2.72%</td>
-						<td align="center">2.72%</td>
-						<td align="center">8.28</td>
-						<td align="center">6.72</td>
-						<td align="center">67.72%</td>
-						<td align="center">67.72%</td>
-						<td align="center">9,503</td>
-						<td align="center">385</td>
-					  </tr>
-					</tbody>
-				  </table>
-				</section>
-				<section>
-				  <h2>Description</h2>
-				  <p>
-					SSRF flaws occur whenever a web application is fetching a remote
-					resource without validating the user-supplied URL. It allows an
-					attacker to coerce the application to send a crafted request to an
-					unexpected destination, even when protected by a firewall, VPN, or
-					another type of network
-				  </p>
-				</section>
-				<section>
-				  <h2>How to prevent?</h2>
-				  <a
-					href="https://owasp.org/Top10/A10_2021-Server-Side_Request_Forgery_%28SSRF%29/#how-to-prevent"
-					>Ways to prevent</a
-				  >
-				  <p>Do not send raw responses to clients</p>
-				</section>
-				<section>
-				  <h4>Example Attack Scenarios</h4>
-				  <p>Scenario:</p>
-				  <p>
-					Attackers can access local files or internal services to gain
-					sensitive information such as <pre><code>file:///etc/passwd</code></pre> and
-					<pre><code>http://localhost:28017/</code></pre>.
-				  </p>
-				</section>
-			  </section>
-			</div>
-		  </div>
+          </section>
+        </section>
+        <!-- crypto failures -->
+        <section>
+          <section>
+            A02:2021 – Cryptographic Failures
+            <aside class="notes">Second threat</aside>
+          </section>
+          <section>
+            <table style="font-size: 20px" class="crypto_failures">
+              <thead>
+                <tr>
+                  <th align="center">CWEs Mapped</th>
+                  <th align="center">Max Incidence Rate</th>
+                  <th align="center">Avg Incidence Rate</th>
+                  <th align="center">Avg Weighted Exploit</th>
+                  <th align="center">Avg Weighted Impact</th>
+                  <th align="center">Max Coverage</th>
+                  <th align="center">Avg Coverage</th>
+                  <th align="center">Total Occurrences</th>
+                  <th align="center">Total CVEs</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td align="center">29</td>
+                  <td align="center">46.44%</td>
+                  <td align="center">4.49%</td>
+                  <td align="center">7.29</td>
+                  <td align="center">6.81</td>
+                  <td align="center">79.33%</td>
+                  <td align="center">34.85%</td>
+                  <td align="center">233,788</td>
+                  <td align="center">3,075</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+          <section>
+            <h2>Description</h2>
+            <p>
+              The first thing is to protect personal information of users.
+              Passwords, credit card numbers, health records and business
+              secrets require extra protection.
+            </p>
+            <p>For all such data you should check:</p>
+            <ul>
+              <li>
+                Is the received server certificate and the trust chain properly
+                validated?
+              </li>
+              <li>Are passwords being used as cryptographic keys?</li>
+              <li>Are deprecated hash functions such as MD5 or SHA1 in use?</li>
+            </ul>
+          </section>
+          <section>
+            <h2>How to prevent?</h2>
+            <a
+              href="https://owasp.org/Top10/A02_2021-Cryptographic_Failures/#how-to-prevent"
+              >Ways to prevent</a
+            >
+            <p>
+              Encrypt all data in transit with secure protocols such as TLS with
+              forward secrecy ciphers and secure parameters.
+            </p>
+          </section>
+          <section>
+            <img data-src="./assets/example2.png" alt="" />
+          </section>
+        </section>
+        <!-- injections -->
+        <section>
+          <section>
+            A03:2021 – Injection
+            <aside class="notes">Third threat - threat in forms</aside>
+          </section>
+          <section>
+            <table style="font-size: 20px" class="injections">
+              <thead>
+                <tr>
+                  <th align="center">CWEs Mapped</th>
+                  <th align="center">Max Incidence Rate</th>
+                  <th align="center">Avg Incidence Rate</th>
+                  <th align="center">Avg Weighted Exploit</th>
+                  <th align="center">Avg Weighted Impact</th>
+                  <th align="center">Max Coverage</th>
+                  <th align="center">Avg Coverage</th>
+                  <th align="center">Total Occurrences</th>
+                  <th align="center">Total CVEs</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td align="center">33</td>
+                  <td align="center">19.09%</td>
+                  <td align="center">3.37%</td>
+                  <td align="center">7.25</td>
+                  <td align="center">7.15</td>
+                  <td align="center">94.04%</td>
+                  <td align="center">47.90%</td>
+                  <td align="center">274,228</td>
+                  <td align="center">32,078</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+          <section>
+            <h2>Description</h2>
+            <p>An application is open to attack when:</p>
+            <ul>
+              <li>
+                User-supplied data is not validated, filtered, or sanitized by
+                the application.
+              </li>
+              <li>
+                Dangerous data is directly used. The SQL contains the structure
+                and malicious data in dynamic queries, commands, or stored
+                procedures.
+              </li>
+            </ul>
+          </section>
+          <section>
+            <h2>How to prevent?</h2>
+            <a href="https://owasp.org/Top10/A03_2021-Injection/#how-to-prevent"
+              >Ways to prevent</a
+            >
+            <p>The preferred option is to use a safe API</p>
+          </section>
+          <section>
+            <h4>Example Attack Scenarios</h4>
+            <p>Scenario:</p>
+            <p class="fragment fade-in">
+              An application uses untrusted data in the construction of the
+              following vulnerable SQL call:
+            </p>
+            <pre
+              class="fragment fade-in"
+            ><code data-trim data-noescape>String query = "SELECT \* FROM accounts WHERE custID='" + request.getParameter("id") + "'";</code></pre>
+            <p class="fragment fade-in">
+              the attacker modifies the ‘id’ parameter value in their browser to
+              send: ‘ or ‘1’=’1.
+            </p>
+            <pre
+              class="fragment fade-in"
+            ><code data-trim data-noescape>http://example.com/app/accountView?id=' or '1'='1</code></pre>
+          </section>
+        </section>
+        <!-- insecure design -->
+        <section>
+          <section>
+            A04:2021 – Insecure Design
+            <aside class="notes">
+              Fourth threat - threat in design and architecture
+            </aside>
+          </section>
+          <section>
+            <table style="font-size: 20px" class="insecure_design">
+              <thead>
+                <tr>
+                  <th align="center">CWEs Mapped</th>
+                  <th align="center">Max Incidence Rate</th>
+                  <th align="center">Avg Incidence Rate</th>
+                  <th align="center">Avg Weighted Exploit</th>
+                  <th align="center">Avg Weighted Impact</th>
+                  <th align="center">Max Coverage</th>
+                  <th align="center">Avg Coverage</th>
+                  <th align="center">Total Occurrences</th>
+                  <th align="center">Total CVEs</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td align="center">40</td>
+                  <td align="center">24.19%</td>
+                  <td align="center">3.00%</td>
+                  <td align="center">6.46</td>
+                  <td align="center">6.78</td>
+                  <td align="center">77.25%</td>
+                  <td align="center">42.51%</td>
+                  <td align="center">262,407</td>
+                  <td align="center">2,691</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+          <section>
+            <h2>Description</h2>
+            <p>
+              Insecure design is a broad category representing different
+              weaknesses, expressed as “missing or ineffective control design.”
+            </p>
+          </section>
+          <section>
+            <h2>How to prevent?</h2>
+            <a
+              href="https://owasp.org/Top10/A04_2021-Insecure_Design/#how-to-prevent"
+              >Ways to prevent</a
+            >
+            <p>
+              Write unit and integration tests to validate that all critical
+              flows are resistant to the threat model.
+            </p>
+          </section>
+          <section>
+            <h4>Example Attack Scenarios</h4>
+            <p>Scenario:</p>
+            <p class="fragment fade-in">
+              A cinema chain allows group booking discounts and has a maximum of
+              15 attendees before requiring a deposit. Attackers could threat
+              model this flow and test if they could book 600 seats and all
+              cinemas at once in a few requests, causing a massive loss of
+              income.
+            </p>
+          </section>
+        </section>
+        <!-- Security Misconfiguration -->
+        <section>
+          <section>
+            A05:2021 – Security Misconfiguration
+            <aside class="notes">Fifth threat - threat in security</aside>
+          </section>
+          <section>
+            <table style="font-size: 20px" class="security">
+              <thead>
+                <tr>
+                  <th align="center">CWEs Mapped</th>
+                  <th align="center">Max Incidence Rate</th>
+                  <th align="center">Avg Incidence Rate</th>
+                  <th align="center">Avg Weighted Exploit</th>
+                  <th align="center">Avg Weighted Impact</th>
+                  <th align="center">Max Coverage</th>
+                  <th align="center">Avg Coverage</th>
+                  <th align="center">Total Occurrences</th>
+                  <th align="center">Total CVEs</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td align="center">20</td>
+                  <td align="center">19.84%</td>
+                  <td align="center">4.51%</td>
+                  <td align="center">8.12</td>
+                  <td align="center">6.56</td>
+                  <td align="center">89.58%</td>
+                  <td align="center">44.84%</td>
+                  <td align="center">208,387</td>
+                  <td align="center">789</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+          <section>
+            <h2>Description</h2>
+            <p>The application might be vulnerable if the application is:</p>
+            <ul>
+              <li>Improperly configured permissions on cloud services.</li>
+              <li>
+                Unnecessary features are enabled or installed (e.g., unnecessary
+                ports, services, pages, accounts).
+              </li>
+              <li>
+                Default accounts and their passwords are still enabled and
+                unchanged.
+              </li>
+            </ul>
+          </section>
+          <section>
+            <h2>How to prevent?</h2>
+            <a
+              href="https://owasp.org/Top10/A05_2021-Security_Misconfiguration/#how-to-prevent"
+              >Ways to prevent</a
+            >
+            <p>
+              Sending security directives to clients, e.g., Security Headers.
+            </p>
+          </section>
+          <section>
+            <h4>Example Attack Scenarios</h4>
+            <p>Scenario:</p>
+            <p class="fragment fade-in">
+              The application server comes with sample applications that have
+              not been removed from the production server. These sample
+              applications have known security flaws that attackers use to
+              compromise the server. Let's assume that one of these applications
+              is the admin console and the default accounts have not been
+              changed. In this case, the attacker logs in with the default
+              passwords and takes control.
+            </p>
+          </section>
+        </section>
+        <!-- Vulnerable and Outdated Components -->
+        <section>
+          <section>
+            A06:2021 – Vulnerable and Outdated Components
+            <aside class="notes">Six threat - threat in outdated</aside>
+          </section>
+          <section>
+            <table style="font-size: 20px" class="outdated">
+              <thead>
+                <tr>
+                  <th align="center">CWEs Mapped</th>
+                  <th align="center">Max Incidence Rate</th>
+                  <th align="center">Avg Incidence Rate</th>
+                  <th align="center">Max Coverage</th>
+                  <th align="center">Avg Coverage</th>
+                  <th align="center">Avg Weighted Exploit</th>
+                  <th align="center">Avg Weighted Impact</th>
+                  <th align="center">Total Occurrences</th>
+                  <th align="center">Total CVEs</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td align="center">3</td>
+                  <td align="center">27.96%</td>
+                  <td align="center">8.77%</td>
+                  <td align="center">51.78%</td>
+                  <td align="center">22.47%</td>
+                  <td align="center">5.00</td>
+                  <td align="center">5.00</td>
+                  <td align="center">30,457</td>
+                  <td align="center">0</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+          <section>
+            <h2>Description</h2>
+            <p>You are likely vulnerable:</p>
+            <ul>
+              <li>
+                If you do not know the versions of all components you use (both
+                client-side and server-side).
+              </li>
+              <li>If the software is unsupported or out of date.</li>
+              <li>
+                If software developers do not test the compatibility of updated,
+                upgraded, or patched libraries.
+              </li>
+            </ul>
+          </section>
+          <section>
+            <h2>How to prevent?</h2>
+            <a
+              href="https://owasp.org/Top10/A06_2021-Vulnerable_and_Outdated_Components/#how-to-prevent"
+              >Ways to prevent</a
+            >
+            <p>
+              Remove unused dependencies, unnecessary features, components,
+              files, and documentation.
+            </p>
+            <p>securityfocus.com</p>
+          </section>
+        </section>
+        <!-- Authentication -->
+        <section>
+          <section>
+            A07:2021 – Identification and Authentication Failures
+            <aside class="notes">seventh threat - threat in outdated</aside>
+          </section>
+          <section>
+            <table style="font-size: 20px" class="authentication">
+              <thead>
+                <tr>
+                  <th align="center">CWEs Mapped</th>
+                  <th align="center">Max Incidence Rate</th>
+                  <th align="center">Avg Incidence Rate</th>
+                  <th align="center">Avg Weighted Exploit</th>
+                  <th align="center">Avg Weighted Impact</th>
+                  <th align="center">Max Coverage</th>
+                  <th align="center">Avg Coverage</th>
+                  <th align="center">Total Occurrences</th>
+                  <th align="center">Total CVEs</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td align="center">22</td>
+                  <td align="center">14.84%</td>
+                  <td align="center">2.55%</td>
+                  <td align="center">7.40</td>
+                  <td align="center">6.50</td>
+                  <td align="center">79.51%</td>
+                  <td align="center">45.72%</td>
+                  <td align="center">132,195</td>
+                  <td align="center">3,897</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+          <section>
+            <h2>Description</h2>
+            <p>
+              Confirmation of the user's identity, authentication, and session
+              management is critical to protect against authentication-related
+              attacks. There may be authentication weaknesses if the
+              application:
+            </p>
+            <ul>
+              <li>Permits brute force or other automated attacks.</li>
+              <li>Exposes session identifier in the URL.</li>
+            </ul>
+          </section>
+          <section>
+            <h2>How to prevent?</h2>
+            <a
+              href="https://owasp.org/Top10/A07_2021-Identification_and_Authentication_Failures/#how-to-prevent"
+              >Ways to prevent</a
+            >
+            <p>
+              Where possible, implement multi-factor authentication to prevent
+              automated credential stuffing, brute force, and stolen credential
+              reuse attacks.
+            </p>
+          </section>
+          <section>
+            <h4>Example Attack Scenarios</h4>
+            <p>Scenario:</p>
+            <p class="fragment fade-in">
+              Application session timeouts aren't set correctly. A user uses a
+              public computer to access an application. Instead of selecting
+              "logout," the user simply closes the browser tab and walks away.
+              An attacker uses the same browser an hour later, and the user is
+              still authenticated.
+            </p>
+          </section>
+        </section>
+        <!-- Data Integrity -->
+        <section>
+          <section>
+            A08:2021 – Software and Data Integrity Failures
+            <aside class="notes">eight threat - threat in outdated</aside>
+          </section>
+          <section>
+            <table style="font-size: 20px" class="data_integrity">
+              <thead>
+                <tr>
+                  <th align="center">CWEs Mapped</th>
+                  <th align="center">Max Incidence Rate</th>
+                  <th align="center">Avg Incidence Rate</th>
+                  <th align="center">Avg Weighted Exploit</th>
+                  <th align="center">Avg Weighted Impact</th>
+                  <th align="center">Max Coverage</th>
+                  <th align="center">Avg Coverage</th>
+                  <th align="center">Total Occurrences</th>
+                  <th align="center">Total CVEs</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td align="center">10</td>
+                  <td align="center">16.67%</td>
+                  <td align="center">2.05%</td>
+                  <td align="center">6.94</td>
+                  <td align="center">7.94</td>
+                  <td align="center">75.04%</td>
+                  <td align="center">45.35%</td>
+                  <td align="center">47,972</td>
+                  <td align="center">1,152</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+          <section>
+            <h2>Description</h2>
+            <p>
+              Software and data integrity failures relate to code and
+              infrastructure that does not protect against integrity violations.
+              An example of this is where an application relies upon plugins,
+              libraries, or modules from untrusted sources, repositories, and
+              content delivery networks
+            </p>
+          </section>
+          <section>
+            <h2>How to prevent?</h2>
+            <a
+              href="https://owasp.org/Top10/A08_2021-Software_and_Data_Integrity_Failures/#how-to-prevent"
+              >Ways to prevent</a
+            >
+            <p>
+              Ensure libraries and dependencies, such as npm, are consuming
+              trusted repositories.
+            </p>
+          </section>
+          <section>
+            <h4>Example Attack Scenarios</h4>
+            <p>Scenario:</p>
+            <p>
+              A React application calls a set of Spring Boot microservices.
+              Being functional programmers, they tried to ensure that their code
+              is immutable. The solution they came up with is serializing the
+              user state and passing it back and forth with each request. An
+              attacker notices the "rO0" Java object signature (in base64) and
+              uses the Java Serial Killer tool to gain remote code execution on
+              the application server.
+            </p>
+          </section>
+        </section>
+        <!-- Security Logging -->
+        <section>
+          <section>
+            A09:2021 – Security Logging and Monitoring Failures
+            <aside class="notes">
+              nineth threat - threat in Logging and Monitoring
+            </aside>
+          </section>
+          <section>
+            <table style="font-size: 20px" class="security_logging">
+              <thead>
+                <tr>
+                  <th align="center">CWEs Mapped</th>
+                  <th align="center">Max Incidence Rate</th>
+                  <th align="center">Avg Incidence Rate</th>
+                  <th align="center">Avg Weighted Exploit</th>
+                  <th align="center">Avg Weighted Impact</th>
+                  <th align="center">Max Coverage</th>
+                  <th align="center">Avg Coverage</th>
+                  <th align="center">Total Occurrences</th>
+                  <th align="center">Total CVEs</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td align="center">4</td>
+                  <td align="center">19.23%</td>
+                  <td align="center">6.51%</td>
+                  <td align="center">6.87</td>
+                  <td align="center">4.99</td>
+                  <td align="center">53.67%</td>
+                  <td align="center">39.97%</td>
+                  <td align="center">53,615</td>
+                  <td align="center">242</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+          <section>
+            <h2>Description</h2>
+            <p>
+              This category is to help detect, escalate, and respond to active
+              breaches. Without logging and monitoring, breaches cannot be
+              detected. Insufficient logging, detection, monitoring, and active
+              response occurs any time:
+            </p>
+            <ul>
+              <li>
+                The application cannot detect, escalate, or alert for active
+                attacks in real-time or near real-time.
+              </li>
+            </ul>
+          </section>
+          <section>
+            <h2>How to prevent?</h2>
+            <a
+              href="https://owasp.org/Top10/A09_2021-Security_Logging_and_Monitoring_Failures/#how-to-prevent"
+              >Ways to prevent</a
+            >
+            <p>
+              There are commercial and open-source application protection
+              frameworks such as the OWASP ModSecurity Core Rule Set, and
+              open-source log correlation software, such as the Elasticsearch,
+              Logstash, Kibana stack, that feature custom dashboards and
+              alerting.
+            </p>
+          </section>
+          <section>
+            <h4>Example Attack Scenarios</h4>
+            <p>Scenario:</p>
+            <p class="fragment fade-in">
+              A children's health plan provider's website operator couldn't
+              detect a breach due to a lack of monitoring and logging. An
+              external party informed the health plan provider that an attacker
+              had accessed and modified thousands of sensitive health records of
+              more than 3.5 million children.
+            </p>
+          </section>
+        </section>
+        <!-- Server-Side -->
+        <section>
+          <section>
+            A10:2021 – Server-Side Request Forgery (SSRF)
+            <aside class="notes">last threat - threat in Server-Side</aside>
+          </section>
+          <section>
+            <table style="font-size: 20px" class="server_side">
+              <thead>
+                <tr>
+                  <th align="center">CWEs Mapped</th>
+                  <th align="center">Max Incidence Rate</th>
+                  <th align="center">Avg Incidence Rate</th>
+                  <th align="center">Avg Weighted Exploit</th>
+                  <th align="center">Avg Weighted Impact</th>
+                  <th align="center">Max Coverage</th>
+                  <th align="center">Avg Coverage</th>
+                  <th align="center">Total Occurrences</th>
+                  <th align="center">Total CVEs</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td align="center">1</td>
+                  <td align="center">2.72%</td>
+                  <td align="center">2.72%</td>
+                  <td align="center">8.28</td>
+                  <td align="center">6.72</td>
+                  <td align="center">67.72%</td>
+                  <td align="center">67.72%</td>
+                  <td align="center">9,503</td>
+                  <td align="center">385</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+          <section>
+            <h2>Description</h2>
+            <p>
+              SSRF flaws occur whenever a web application is fetching a remote
+              resource without validating the user-supplied URL. It allows an
+              attacker to coerce the application to send a crafted request to an
+              unexpected destination, even when protected by a firewall, VPN, or
+              another type of network
+            </p>
+          </section>
+          <section>
+            <h2>How to prevent?</h2>
+            <a
+              href="https://owasp.org/Top10/A10_2021-Server-Side_Request_Forgery_%28SSRF%29/#how-to-prevent"
+              >Ways to prevent</a
+            >
+            <p>Do not send raw responses to clients</p>
+          </section>
+          <section>
+            <h4>Example Attack Scenarios</h4>
+            <p>Scenario:</p>
+            <div>
+              Attackers can access local files or internal services to gain
+              sensitive information such as
+              <pre><code>file:///etc/passwd</code></pre>
+              and
+              <pre><code>http://localhost:28017/</code></pre>
+              .
+            </div>
+          </section>
+        </section>
+      </div>
+    </div>
 
-		<script src="dist/reveal.js"></script>
-		<script src="plugin/notes/notes.js"></script>
-		<script src="plugin/markdown/markdown.js"></script>
-		<script src="plugin/highlight/highlight.js"></script>
-		<script>
-			// More info about initialization & config:
-			// - https://revealjs.com/initialization/
-			// - https://revealjs.com/config/
-			Reveal.initialize({
-				hash: true,
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
 
-				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
-			});
-		</script>
-	</body>
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+      });
+    </script>
+  </body>
 </html>
